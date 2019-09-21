@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour {
-    public Transform player;
+    public Transform target;
     public Vector3 offset;
+    public float smoothSpeed = 10f;
 
-    // Update is called once per frame
-    void Update() {
-        transform.position = new Vector3(player.position.x + offset.x, offset.y, player.position.z + offset.z);
+    void FixedUpdate() {
+        Vector3 desiredPosition = target.position + offset;
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+        transform.position = smoothedPosition;
     }
 }
