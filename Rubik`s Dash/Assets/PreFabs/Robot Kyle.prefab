@@ -608,7 +608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7a80d520cacc042b5fe14f373d8173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MovingTurnSpeed: 360
+  m_MovingTurnSpeed: 810.86
   m_StationaryTurnSpeed: 180
   m_JumpPower: 6
   m_GravityMultiplier: 2
@@ -631,6 +631,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 7990127522770819816}
   character: {fileID: 0}
+  animator: {fileID: 0}
+  green: {fileID: 0}
+  player: {fileID: 0}
+  root: {fileID: 0}
 --- !u!1 &2614319417883742602
 GameObject:
   m_ObjectHideFlags: 0
