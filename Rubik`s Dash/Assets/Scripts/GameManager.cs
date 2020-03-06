@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour {
         if (!activeSpawnPoints[randomIndex])
             return;
         Transform spawnpoint = spawnPoints[randomIndex].transform;
-        instantiatedObj = (GameObject)Instantiate(wall, spawnpoint.position, spawnpoint.rotation,wallParent);
+        instantiatedObj = (GameObject)Instantiate(wall, spawnpoint.position, spawnpoint.rotation, wallParent);
 
         Destroy(instantiatedObj, destroyDelay);
 
@@ -61,18 +61,13 @@ public class GameManager : MonoBehaviour {
         ++run;
         PlayerPrefs.SetInt("Run", run);
         PlayerPrefs.SetFloat("Delay", spawnDelay);
+        PlayerPrefs.SetFloat("MaxScore", 0f);
         Invoke("RestartGame", restartDelay);
     }
     public void EndGame() {
         if (!gameHasEnded) {
             gameHasEnded = true;
             percent.enabled = false;
-            /*
-            spawnDelay = 0.5f;
-            run = 1;
-            PlayerPrefs.SetInt("Run", run);
-            PlayerPrefs.SetFloat("Delay", spawnDelay);
-            */
             Invoke("RestartGame", restartDelay);
         }
     }
@@ -81,6 +76,7 @@ public class GameManager : MonoBehaviour {
     }
     public void ResetData() {
         PlayerPrefs.DeleteAll();
+        //PlayerPrefs.SetFloat("MaxScore", 0f);
         RestartGame();
     }
 }
